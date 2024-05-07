@@ -7,9 +7,14 @@ const logger = (req, _res, next) => {
   console.log(req.originalUrl);
   next();
 };
-app.use(logger); // Add logger middleware, which runs before any request defined below this line
 
-app.get("/", (_req, res) => {
+const logger2 = (_req, _res, next) => {
+  console.log("Second logger");
+  next();
+};
+
+// Add logger middleware that only run for the "/" route, more middlewares can be added to the same route separated by commas.
+app.get("/", logger, logger2, (_req, res) => {
   res.send("Hello, Express!");
 });
 
