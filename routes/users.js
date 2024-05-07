@@ -1,9 +1,13 @@
 const express = require("express");
 const router = express.Router();
 
+router.get("/new", (_req, res) => {
+  res.render("users/new", { placeHolder: "First name" });
+});
+
 router.get("/", (req, res) => {
-  const name = req.query.name; // get the name query parameter from the url (e.g. /users?name=John)
-  res.send(`Hello, ${name}!`);
+  const firstName = req.query.firstName;
+  res.send(`Hello, ${firstName}!`);
 });
 
 module.exports = router;

@@ -6,13 +6,13 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="/users" method="post">
+    <form action="/users" method="get">
       <label>
         First Name
         <input
           type="text"
-          name="fistName"
-          value="<%= locals.defaultFistName %>"
+          name="firstName"
+          placeholder="<%= locals.placeHolder %>"
         />
       </label>
       <button type="submit">Submit</button>
